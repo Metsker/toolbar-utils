@@ -23,4 +23,5 @@ It also currently requires Unity new Input system, because I don't see a point t
                 return;
             }
 #endif
+// Bootstrap in release mode
 ```
