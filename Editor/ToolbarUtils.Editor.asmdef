@@ -1,7 +1,10 @@
-﻿{
-  "name": "ToolbarUtils.Editor",
-  "includePlatforms": ["Editor"],
-  "references": [
-    "Unity.InputSystem"
-  ]
+{
+    "name": "ToolbarUtils.Editor",
+    "references": [
+        "Unity.InputSystem",
+        "ToolbarExtender.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
 }

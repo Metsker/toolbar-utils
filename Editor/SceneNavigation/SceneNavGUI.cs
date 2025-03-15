@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using JetBrains.Annotations;
-using ToolbarUtils.UnityToolbarExtender;
+using UnityToolbarExtender;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

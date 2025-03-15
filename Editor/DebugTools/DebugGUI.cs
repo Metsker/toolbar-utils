@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
-using ToolbarUtils.UnityToolbarExtender;
 using UnityEditor;
 using UnityEngine;
+using UnityToolbarExtender;
 
 namespace ToolbarUtils.DebugTools
 {
