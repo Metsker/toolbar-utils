@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityToolbarExtender;
 
-namespace ToolbarUtils.DebugTools
+namespace ToolbarUtils
 {
     [InitializeOnLoad]
     public static class DebugGUI
