@@ -31,7 +31,7 @@ namespace ToolbarUtils
         }
 
         private static void DrawDebugToggle() =>
-            DebugMode = GUILayout.Toggle(DebugMode, new GUIContent("Debug", "Enables debug mode"), GUILayout.ExpandWidth(false));
+            DebugMode = GUILayout.Toggle(DebugMode, new GUIContent("Debug", "Toggles debug mode"), GUILayout.ExpandWidth(false));
 
         private static void DrawTimescaleSlider()
         {
