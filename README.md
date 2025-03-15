@@ -10,11 +10,11 @@ It also currently requires Unity new Input system, because I don't see a point t
 
 ## Features:
 - Easy navigation between the scenes in build, hold alt to load in additive mode [Buttons]
-- Redirect to the first scene in build on enter play mode [Toggle]
+- Redirect to the first scene in build on play mode enter [Toggle]
 - Debug (Editor only) [Toggle]
 - Time scale [Slider]
 
-## Debug toggle usage example:
+## Debug toggle API usage example:
 ```
 #if UNITY_EDITOR
             if (ToolbarUtils.DebugTools.DebugGUI.DebugMode)
