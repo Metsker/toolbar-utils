@@ -1,0 +1,7 @@
+﻿{
+  "name": "ToolbarUtils.Editor",
+  "includePlatforms": ["Editor"],
+  "references": [
+    "Unity.InputSystem"
+  ]
+}
