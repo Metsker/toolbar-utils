@@ -17,7 +17,7 @@ It also currently requires Unity new Input system, because I don't see a point t
 ## Debug toggle API usage example:
 ```
 #if UNITY_EDITOR
-            if (ToolbarUtils.DebugTools.DebugGUI.DebugMode)
+            if (ToolbarUtils.DebugGUI.DebugMode)
             {
                 // Bootstrap in debug mode
                 return;
