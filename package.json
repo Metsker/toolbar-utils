@@ -4,7 +4,7 @@
   "displayName": "Toolbar Utils",
   "description": "Scene navigation and debug utils for unity toolbar",
   "dependencies": {
-    "https://github.com/marijnz/unity-toolbar-extender.git": "1.4.3"
+    "com.marijnzwemmer.unity-toolbar-extender": "1.4.2"
  },
   "author": {
     "name": "Metsker",
