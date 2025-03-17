@@ -28,6 +28,9 @@ namespace ToolbarUtils.SceneNavigation
 
             foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
             {
+                if (!scene.enabled)
+                    continue;
+                
                 string path = scene.path;
                 string name = Path.GetFileNameWithoutExtension(path);
 
