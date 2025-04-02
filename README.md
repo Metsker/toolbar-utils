@@ -11,17 +11,26 @@ It also currently requires Unity new Input system, because I don't see a point t
 ## Features:
 - Easy navigation between the scenes in build, hold alt to load in additive mode [Buttons]
 - Redirect to the first scene in build on play mode enter [Toggle]
-- Debug (Editor only) [Toggle]
+- Debug (Works only in Development build and Editor) [Toggle]
 - Time scale [Slider]
+- Toggle any of the above modules visibility via Tools/Metsker/ToolbarUtils
 
-## Debug toggle API usage example:
+## Debug mode API usage example:
 ```
-#if UNITY_EDITOR
-            if (ToolbarUtils.DebugGUI.DebugMode)
-            {
-                // Bootstrap in debug mode
-                return;
-            }
-#endif
-// Bootstrap in release mode
+using ToolbarUtils;
+
+public class Example
+{
+    void Foo()
+    {
+        if(DebugMode.Enabled)
+        {
+            //Your debug logic
+        }
+        else
+        {
+            //Your release logic
+        }
+    }
+}
 ```
