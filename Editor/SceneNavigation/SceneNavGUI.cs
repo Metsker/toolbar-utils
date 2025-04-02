@@ -12,8 +12,8 @@ namespace ToolbarUtils.SceneNavigation
     public static class SceneNavGUI
     {
         private static bool Redirect {
-            get => EditorPrefs.GetBool("RedirectScene");
-            set => EditorPrefs.SetBool("RedirectScene", value);
+            get => EditorPrefs.GetBool("ToolbarUtils.RedirectScene");
+            set => EditorPrefs.SetBool("ToolbarUtils.RedirectScene", value);
         }
         
         static SceneNavGUI()
@@ -23,6 +23,9 @@ namespace ToolbarUtils.SceneNavigation
 
         private static void OnToolbarGUI()
         {
+            if (!DrawSceneNavEnabled)
+                return;
+            
             GUILayout.FlexibleSpace();
             GUILayout.BeginHorizontal();
 
@@ -43,16 +46,50 @@ namespace ToolbarUtils.SceneNavigation
                 EditorSceneManager.OpenScene(path, !Keyboard.current.altKey.isPressed ? OpenSceneMode.Single : OpenSceneMode.Additive);
             }
             
-            Redirect = GUILayout.Toggle(Redirect, new GUIContent("Redirect", "Redirect to the first scene in build on play"));
-            SetPlayModeStartScene(Redirect ? EditorBuildSettings.scenes[0].path : null);
+            string firstScenePath = EditorBuildSettings.scenes.Length > 0 ? EditorBuildSettings.scenes[0].path : null;
+
+            if (string.IsNullOrEmpty(firstScenePath))
+            {
+                GUILayout.EndHorizontal();
+                return;
+            }
+            Redirect = GUILayout.Toggle(Redirect, new GUIContent("Redirect", "Enters play mode from the first scene in build settings"));
+            
+            SetPlayModeStartScene(Redirect ? firstScenePath : null);
             
             GUILayout.EndHorizontal();
         }
 
-        private static void SetPlayModeStartScene([CanBeNull]string scenePath)
+        private static void SetPlayModeStartScene([CanBeNull] string scenePath)
         {
             SceneAsset startScene = string.IsNullOrEmpty(scenePath) ? null : AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
             EditorSceneManager.playModeStartScene = startScene;
+        }
+        
+        private const string SceneNavMenuName = "Tools/Metsker/ToolbarUtils/Scene Navigation";
+
+        private static bool DrawSceneNavEnabled {
+            get => EditorPrefs.GetInt("ToolbarUtils.DrawSceneNav", 1) == 1;
+            set => EditorPrefs.SetInt("ToolbarUtils.DrawSceneNav", value ? 1 : 0);
+        }
+        
+        [MenuItem(SceneNavMenuName)]
+        private static void ShowSceneNav()
+        {
+            DrawSceneNavEnabled = !DrawSceneNavEnabled;
+            
+            if (!DrawSceneNavEnabled)
+            {
+                Redirect = false;
+                SetPlayModeStartScene(null);
+            }
+        }
+        
+        [MenuItem(SceneNavMenuName, true)]
+        private static bool ShowSceneNavValidate()
+        {
+            Menu.SetChecked(SceneNavMenuName, DrawSceneNavEnabled);
+            return true;
         }
     }
 }

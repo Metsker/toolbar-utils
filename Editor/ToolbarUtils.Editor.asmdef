@@ -2,7 +2,8 @@
     "name": "ToolbarUtils.Editor",
     "references": [
         "Unity.InputSystem",
-        "ToolbarExtender.Editor"
+        "ToolbarExtender.Editor",
+        "ToolbarUtils.Runtime"
     ],
     "includePlatforms": [
         "Editor"
