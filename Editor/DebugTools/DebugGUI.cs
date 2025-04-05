@@ -35,7 +35,7 @@ namespace ToolbarUtils.DebugTools
         {
             GUILayout.Label("TimeScale", GUILayout.ExpandWidth(false));
             Time.timeScale = (float)Math.Round(GUILayout.HorizontalSlider(Time.timeScale, 0, 2, GUILayout.Width(100), GUILayout.ExpandWidth(false)), 1);
-            GUILayout.Label(Time.timeScale.ToString(CultureInfo.InvariantCulture));
+            GUILayout.Label(Time.timeScale.ToString(CultureInfo.InvariantCulture), GUILayout.ExpandWidth(false));
         }
 
         private const string DebugToggleMenuName = "Tools/Metsker/ToolbarUtils/Draw Debug Toggle";
