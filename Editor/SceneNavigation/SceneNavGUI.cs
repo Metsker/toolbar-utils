@@ -4,7 +4,6 @@ using UnityToolbarExtender;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace ToolbarUtils.SceneNavigation
 {
@@ -43,7 +42,7 @@ namespace ToolbarUtils.SceneNavigation
                 if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                     return;
                         
-                EditorSceneManager.OpenScene(path, !Keyboard.current.altKey.isPressed ? OpenSceneMode.Single : OpenSceneMode.Additive);
+                EditorSceneManager.OpenScene(path, !Event.current.alt ? OpenSceneMode.Single : OpenSceneMode.Additive);
             }
             
             string firstScenePath = EditorBuildSettings.scenes.Length > 0 ? EditorBuildSettings.scenes[0].path : null;
