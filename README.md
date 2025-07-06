@@ -6,8 +6,6 @@ Scene navigation and debug utils for unity toolbar
 ## Dependencies
 This package requires https://github.com/marijnz/unity-toolbar-extender for it to work. Since Unity does not support git dependencies for packages, you need to install it separately.
 
-It also currently requires Unity new Input system, because I don't see a point to support the old one.
-
 ## Features:
 - Easy navigation between the scenes in build, hold alt to load in additive mode [Buttons]
 - Redirect to the first scene in build on play mode enter [Toggle]
